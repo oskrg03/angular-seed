@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1em;
+    
+}
+
+.card-text{
+    color: #363636;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.btn{
+    font-weight: 500;
+    font-size: medium;
+    float: right;
+    width: 10em;
+}
+
+#response:focus{
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+  }

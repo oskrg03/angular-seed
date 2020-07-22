@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/d9e9bf59ee.css">
+</head>
+
+<body ng-controller="HomeCtrl">
+
+ 
+<div class="container">
+    <div class="col" >
+      <button class="btn btn-outline-dark center" ng-click="salir()" >Salir</button>
+    </div>
+      <div class=" container ">
+        <div class="row filters">
+          <div class="col">
+            <label for="">BookingID</label>
+            <form class="form">
+              <div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+    
+                    <div class="input-group-text">
+                      <!-- <fa-icon [icon]="faSearch"></fa-icon> -->
+                      <i class="fa fa-search" aria-hidden="true"></i>
+    
+                    </div>
+                  </div>
+                  <input ng-model="searchValue" name="searchValue" class="form-control mr-sm-2" type="number" min="0"
+                    placeholder="ingrese boking id" ng-change="buscar()" />
+    
+                </div>
+              </div>
+            </form>
+    
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col" style="margin-top: 2em">
+                <div class="dropdown">
+                  <button style="width: 8em;" class="btn btn-dark dropdown-toggle" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{choosed}}
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" ng-click="choosedMethod('y')">y</a>
+                    <a class="dropdown-item" ng-click="choosedMethod('>=')">>=</a>
+                    <a class="dropdown-item" ng-click="choosedMethod('<=')"><=</a> 
+                </div> 
+            </div> 
+        </div> 
+                <div class="col">
+                        <label for="">Precio</label>
+                        <input ng-model="precio" class="form-control " type="number" min="0" ng-change="filtrar()">
+                  </div>
+                </div>
+    
+    
+              </div>
+            </div>
+    
+          </div>
+    
+    
+    
+    
+          <table class="table">
+            <thead>
+              <tr>
+    
+                <th scope="col">BookingId</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Fecha de creación</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Precio</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="booking in BookingListFiltered">
+               
+                <td>{{booking.bookingID}}</td>
+                <td>{{booking.cliente}}</td>
+                <td>{{booking.fecha_creacion.toDateString()}}</td>
+                <td>{{booking.direccion}}</td>
+                <td>{{booking.precio | currency:"$":0}}</td>
+    
+    
+              </tr>
+    
+            </tbody>
+          </table>
+        </div>
+       
+
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+ 
+    <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+    <!-- <script src="https://use.fontawesome.com/d9e9bf59ee.js"></script> -->
+        
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
